@@ -47,4 +47,3 @@ echo
 # Add Execute permission to a.sh
 # chmod 744 a.sh
 
-# Add your path in filepath
