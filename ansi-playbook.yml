@@ -1,0 +1,50 @@
+
+#!/bin/bash
+
+clear
+
+echo "============ Directory Exist or not =============="
+
+filepath=/u01/app/oracle/
+dirname=$1
+path=$filepath$dirname
+
+sub1=$(echo $dirname | cut -c1-7)
+sub2=$(echo $dirname | cut -c8)
+
+count=$sub2
+
+if [ -d $path ]
+then
+    count=$(($count + 1))
+    mkdir "$filepath$sub1$count"
+    echo
+    echo "Directory $dirname is already exist"
+    echo "Directory $dirname is renamed to $sub1$count"
+    echo
+    echo "All Present Directories and Files in $filepath are :"
+    ls $filepath
+else
+    mkdir $filepath$dirname
+    echo
+    echo "Directory $dirname is not exist"
+    echo "Directory $dirname is created now..."
+    echo
+    echo "All Present Directories and Files in $filepath are :"
+    ls $filepath
+fi
+
+echo
+
+# ==================================================================
+
+# Execute a.sh with dir name as
+# ./a.sh db1
+# ./a.sh db2
+# ./a.sh db3
+
+
+# Add Execute permission to a.sh
+# chmod 744 a.sh
+
+# Add your path in filepath
